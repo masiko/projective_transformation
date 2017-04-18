@@ -35,6 +35,7 @@ public:
 	~projective_tf(){};
 
 	int setMatPra(int w, int h);
+	int setRM(double);
 	int setFOV(double);
 	int culTf();
 	int culMt(double* m, double* vi, double* vo);
