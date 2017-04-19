@@ -26,20 +26,21 @@ int projective_tf::setMatPra(int w, int h) {
 	d = .0;
 
 	rm[4] = 1/cos(tilt);
-	sm[5] = -rm[4]*centery + centery;
+	sm[5] = (1-rm[4])*centery;
 	return 0;
 }
 
 int projective_tf::setRM(double ang) {
 	tilt = ang;
 	rm[4] = 1/cos(tilt);
-	sm[5] = -rm[4]*centery + centery;
+	sm[5] = (1-rm[4])*centery;
 	return 0;
 }
 
 int projective_tf::setFOV(double l) {
 	a = (1.0 - l) / (endy - starty);
-	b = a*starty + l;
+	b = -a*starty + l;
+	return 0;
 }
 
 int projective_tf::culTf() { 
