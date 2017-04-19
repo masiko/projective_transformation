@@ -23,6 +23,7 @@ int main() {
 	pt.out.create((int)cap.get(CV_CAP_PROP_FRAME_HEIGHT), (int)cap.get(CV_CAP_PROP_FRAME_WIDTH), CV_8UC3);
 	
 	pt.setFOV(2.0);
+	pt.setRM(.0);
 
 	while(1) {
 		cap >> pt.in;

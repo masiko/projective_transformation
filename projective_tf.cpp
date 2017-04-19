@@ -6,8 +6,8 @@ projective_tf::projective_tf() {
 	centerx = 
 	centery = -1;
 
-	tilt = 4*M_PI/10;	//0 < tilt < M_PI/2
-	FOV = M_PI/3;
+	tilt = .0;//4*M_PI/10;	//0 < tilt < M_PI/2
+	FOV = 1.0;
 }
 
 int projective_tf::setMatPra(int w, int h) {
@@ -30,9 +30,16 @@ int projective_tf::setMatPra(int w, int h) {
 	return 0;
 }
 
-int projective_tf::setFOV(double ang) {
-	a = (1.0 - ang) / (endy - starty);
-	b = a*starty + ang;
+int projective_tf::setRM(double ang) {
+	tilt = ang;
+	rm[4] = 1/cos(tilt);
+	sm[5] = -rm[4]*centery + centery;
+	return 0;
+}
+
+int projective_tf::setFOV(double l) {
+	a = (1.0 - l) / (endy - starty);
+	b = a*starty + l;
 }
 
 int projective_tf::culTf() { 
