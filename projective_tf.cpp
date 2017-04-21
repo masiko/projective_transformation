@@ -15,11 +15,14 @@ int projective_tf::setMatPra(int w, int h) {
 	height = h;
 	centerx = w/2;
 	centery = h/2;
-	startx = w/4;
-	starty = h/4;
-	endx = 3*w/4;
-	endy = 3*h/4;
+	startx = w/6;
+	starty = h/6;
+	endx = 5*w/6;
+	endy = 5*h/6;
 
+	in.create(height, width, CV_8UC3);
+	out.create(height, width, CV_8UC3);
+	
 	a = 
 	b = 
 	c = 

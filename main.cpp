@@ -8,9 +8,9 @@ int main() {
 	int x, y, t;
 	int x0, y0, t0;
 #ifdef CAP_MODE
-	cv::VideoCapture cap(0);
+	cv::VideoCapture cap(1);
 #else
-	cv::VideoCapture cap("./2017-04-18-222056.webm");
+	cv::VideoCapture cap("video2.mp4");
 #endif	
 	cv::namedWindow("cap");
 	cv::namedWindow("dst");
@@ -19,8 +19,6 @@ int main() {
 	std::cout << "start cap channel 1\n";
 	
 	pt.setMatPra(cap.get(CV_CAP_PROP_FRAME_WIDTH), cap.get(CV_CAP_PROP_FRAME_HEIGHT));
-	pt.in.create((int)cap.get(CV_CAP_PROP_FRAME_HEIGHT), (int)cap.get(CV_CAP_PROP_FRAME_WIDTH), CV_8UC3);
-	pt.out.create((int)cap.get(CV_CAP_PROP_FRAME_HEIGHT), (int)cap.get(CV_CAP_PROP_FRAME_WIDTH), CV_8UC3);
 	
 	pt.setFOV(2.0);
 	pt.setRM(.0);
